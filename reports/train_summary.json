@@ -1,0 +1,192 @@
+{
+  "cleaning": {
+    "rows_in": 8651,
+    "conflicting_keys": 50,
+    "dropped_conflict_rows": 107,
+    "dropped_duplicate_rows": 225,
+    "rows_out": 8319,
+    "phishing_out": 4062,
+    "legit_out": 4257
+  },
+  "target_val_fpr": 0.01,
+  "baseline": {
+    "components": [
+      [
+        "logreg",
+        {
+          "C": 4.0
+        },
+        1.0
+      ]
+    ],
+    "threshold": 0.7996,
+    "onnx_vs_python_max_abs_diff": 2.1662380067510867e-07,
+    "validation_thresholds": [
+      {
+        "target_fpr": 0.05,
+        "threshold": 0.6348,
+        "val_recall": 0.8227,
+        "val_fpr": 0.0498,
+        "val_false_positives": 212,
+        "deployed_precision": 0.0163
+      },
+      {
+        "target_fpr": 0.02,
+        "threshold": 0.7336,
+        "val_recall": 0.7469,
+        "val_fpr": 0.01997,
+        "val_false_positives": 85,
+        "deployed_precision": 0.0361
+      },
+      {
+        "target_fpr": 0.01,
+        "threshold": 0.7996,
+        "val_recall": 0.6701,
+        "val_fpr": 0.00987,
+        "val_false_positives": 42,
+        "deployed_precision": 0.0637
+      },
+      {
+        "target_fpr": 0.005,
+        "threshold": 0.8701,
+        "val_recall": 0.5389,
+        "val_fpr": 0.00493,
+        "val_false_positives": 21,
+        "deployed_precision": 0.0986
+      },
+      {
+        "target_fpr": 0.001,
+        "threshold": 0.9702,
+        "val_recall": 0.1805,
+        "val_fpr": 0.00094,
+        "val_false_positives": 4,
+        "deployed_precision": 0.1612
+      }
+    ]
+  },
+  "advanced": {
+    "components": [
+      [
+        "logreg",
+        {
+          "C": 16.0
+        },
+        0.25
+      ],
+      [
+        "lightgbm",
+        {
+          "n_estimators": 800,
+          "learning_rate": 0.05,
+          "num_leaves": 63,
+          "colsample_bytree": 0.3,
+          "min_child_samples": 10
+        },
+        0.75
+      ]
+    ],
+    "threshold": 0.9709,
+    "onnx_vs_python_max_abs_diff": 1.2208481753317457e-07,
+    "validation_thresholds": [
+      {
+        "target_fpr": 0.05,
+        "threshold": 0.776,
+        "val_recall": 0.8712,
+        "val_fpr": 0.0498,
+        "val_false_positives": 212,
+        "deployed_precision": 0.0172
+      },
+      {
+        "target_fpr": 0.02,
+        "threshold": 0.9296,
+        "val_recall": 0.7804,
+        "val_fpr": 0.01997,
+        "val_false_positives": 85,
+        "deployed_precision": 0.0377
+      },
+      {
+        "target_fpr": 0.01,
+        "threshold": 0.9709,
+        "val_recall": 0.7021,
+        "val_fpr": 0.00987,
+        "val_false_positives": 42,
+        "deployed_precision": 0.0665
+      },
+      {
+        "target_fpr": 0.005,
+        "threshold": 0.9915,
+        "val_recall": 0.5825,
+        "val_fpr": 0.00493,
+        "val_false_positives": 21,
+        "deployed_precision": 0.1057
+      },
+      {
+        "target_fpr": 0.001,
+        "threshold": 0.9994,
+        "val_recall": 0.3439,
+        "val_fpr": 0.00094,
+        "val_false_positives": 4,
+        "deployed_precision": 0.2681
+      }
+    ]
+  },
+  "xgboost": {
+    "components": [
+      [
+        "xgboost",
+        {
+          "n_estimators": 600,
+          "learning_rate": 0.1,
+          "max_depth": 8,
+          "colsample_bytree": 0.3,
+          "tree_method": "hist"
+        },
+        1.0
+      ]
+    ],
+    "threshold": 0.9622,
+    "onnx_vs_python_max_abs_diff": 1.7881393432617188e-07,
+    "validation_thresholds": [
+      {
+        "target_fpr": 0.05,
+        "threshold": 0.7244,
+        "val_recall": 0.839,
+        "val_fpr": 0.0498,
+        "val_false_positives": 212,
+        "deployed_precision": 0.0166
+      },
+      {
+        "target_fpr": 0.02,
+        "threshold": 0.9037,
+        "val_recall": 0.7322,
+        "val_fpr": 0.01997,
+        "val_false_positives": 85,
+        "deployed_precision": 0.0354
+      },
+      {
+        "target_fpr": 0.01,
+        "threshold": 0.9622,
+        "val_recall": 0.6349,
+        "val_fpr": 0.00987,
+        "val_false_positives": 42,
+        "deployed_precision": 0.0605
+      },
+      {
+        "target_fpr": 0.005,
+        "threshold": 0.9853,
+        "val_recall": 0.5443,
+        "val_fpr": 0.00493,
+        "val_false_positives": 21,
+        "deployed_precision": 0.0995
+      },
+      {
+        "target_fpr": 0.001,
+        "threshold": 0.9997,
+        "val_recall": 0.1962,
+        "val_fpr": 0.00094,
+        "val_false_positives": 4,
+        "deployed_precision": 0.1729
+      }
+    ]
+  }
+}

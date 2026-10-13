@@ -1,0 +1,233 @@
+{
+  "train_issues": {
+    "exact_duplicate_rows": 30,
+    "urls_with_both_labels": 50,
+    "normalised_duplicate_rows": 282,
+    "html_entity_rows": 185,
+    "html_entity_rows_phishing": 185,
+    "non_ascii_rows": 5,
+    "uppercase_rows": 2268,
+    "over_500_chars": 20,
+    "hosts_with_both_labels": 55,
+    "top_domains": {
+      "duilawyeryork.com": {
+        "rows": 265,
+        "phish": 263
+      },
+      "wikipedia.org": {
+        "rows": 134,
+        "phish": 0
+      },
+      "google.com": {
+        "rows": 113,
+        "phish": 96
+      },
+      "tumblr.com": {
+        "rows": 64,
+        "phish": 5
+      },
+      "wordpress.com": {
+        "rows": 54,
+        "phish": 0
+      },
+      "sharepoint.com": {
+        "rows": 48,
+        "phish": 48
+      },
+      "shadetreetechnology.com": {
+        "rows": 45,
+        "phish": 45
+      },
+      "000webhostapp.com": {
+        "rows": 44,
+        "phish": 44
+      }
+    }
+  },
+  "cleaning": {
+    "rows_in": 8651,
+    "conflicting_keys": 50,
+    "dropped_conflict_rows": 107,
+    "dropped_duplicate_rows": 225,
+    "rows_out": 8319,
+    "phishing_out": 4062,
+    "legit_out": 4257
+  },
+  "characteristics": {
+    "train": {
+      "has_path_or_query": {
+        "legit": 0.626,
+        "phish": 0.815
+      },
+      "starts_www": {
+        "legit": 0.661,
+        "phish": 0.203
+      },
+      "digit_in_host": {
+        "legit": 0.032,
+        "phish": 0.228
+      },
+      "3plus_host_labels": {
+        "legit": 0.285,
+        "phish": 0.579
+      },
+      "hyphen_in_host": {
+        "legit": 0.074,
+        "phish": 0.227
+      },
+      "credential_word": {
+        "legit": 0.009,
+        "phish": 0.236
+      },
+      "brand_word": {
+        "legit": 0.022,
+        "phish": 0.148
+      },
+      "html_entity": {
+        "legit": 0.0,
+        "phish": 0.043
+      }
+    },
+    "test": {
+      "has_path_or_query": {
+        "legit": 0.6,
+        "phish": 0.809
+      },
+      "starts_www": {
+        "legit": 0.685,
+        "phish": 0.209
+      },
+      "digit_in_host": {
+        "legit": 0.048,
+        "phish": 0.23
+      },
+      "3plus_host_labels": {
+        "legit": 0.262,
+        "phish": 0.591
+      },
+      "hyphen_in_host": {
+        "legit": 0.085,
+        "phish": 0.233
+      },
+      "credential_word": {
+        "legit": 0.006,
+        "phish": 0.232
+      },
+      "brand_word": {
+        "legit": 0.019,
+        "phish": 0.137
+      },
+      "html_entity": {
+        "legit": 0.0,
+        "phish": 0.04
+      }
+    },
+    "external": {
+      "has_path_or_query": {
+        "legit": 0.0,
+        "phish": 0.288
+      },
+      "starts_www": {
+        "legit": 1.0,
+        "phish": 0.422
+      },
+      "digit_in_host": {
+        "legit": 0.026,
+        "phish": 0.365
+      },
+      "3plus_host_labels": {
+        "legit": 0.15,
+        "phish": 0.563
+      },
+      "hyphen_in_host": {
+        "legit": 0.076,
+        "phish": 0.32
+      },
+      "credential_word": {
+        "legit": 0.001,
+        "phish": 0.064
+      },
+      "brand_word": {
+        "legit": 0.002,
+        "phish": 0.026
+      },
+      "html_entity": {
+        "legit": 0.0,
+        "phish": 0.01
+      }
+    }
+  },
+  "overlap_with_train": {
+    "test": {
+      "exact_url": {
+        "rows": 0,
+        "share": 0.0,
+        "phish_rows": 0
+      },
+      "normalised_url": {
+        "rows": 148,
+        "share": 0.052,
+        "phish_rows": 147
+      },
+      "host": {
+        "rows": 963,
+        "share": 0.337,
+        "phish_rows": 607
+      },
+      "registered_domain": {
+        "rows": 1194,
+        "share": 0.418,
+        "phish_rows": 762
+      }
+    },
+    "external": {
+      "exact_url": {
+        "rows": 0,
+        "share": 0.0,
+        "phish_rows": 0
+      },
+      "normalised_url": {
+        "rows": 0,
+        "share": 0.0,
+        "phish_rows": 0
+      },
+      "host": {
+        "rows": 24,
+        "share": 0.008,
+        "phish_rows": 17
+      },
+      "registered_domain": {
+        "rows": 69,
+        "share": 0.024,
+        "phish_rows": 52
+      }
+    },
+    "test_vs_external": {
+      "exact_url": {
+        "rows": 0,
+        "share": 0.0,
+        "phish_rows": 0
+      },
+      "normalised_url": {
+        "rows": 0,
+        "share": 0.0,
+        "phish_rows": 0
+      },
+      "host": {
+        "rows": 16,
+        "share": 0.006,
+        "phish_rows": 14
+      },
+      "registered_domain": {
+        "rows": 43,
+        "share": 0.015,
+        "phish_rows": 38
+      }
+    }
+  },
+  "external_legit_bare_homepage": 1.0,
+  "train_bare_homepage": {
+    "0": 1589,
+    "1": 750
+  }
+}
