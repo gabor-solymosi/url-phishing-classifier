@@ -202,43 +202,43 @@
       "n": 2858,
       "roc_auc": 0.9867,
       "roc_auc_ci": [
-        0.982,
+        0.9821,
         0.9907
       ],
-      "recall_at_1pct_fpr": 0.8286,
+      "recall_at_1pct_fpr": 0.8258,
       "mean_p_legit": 0.067,
       "mean_p_phish": 0.93,
       "at_threshold": {
-        "tp": 1136,
-        "fn": 293,
+        "tp": 1142,
+        "fn": 287,
         "fp": 9,
         "tn": 1420,
-        "recall": 0.795,
+        "recall": 0.7992,
         "recall_ci": [
-          0.7731,
-          0.8156
+          0.7774,
+          0.8197
         ],
         "fpr": 0.0063,
         "fpr_ci": [
           0.00288,
           0.01192
         ],
-        "precision": 0.9921,
-        "deployed_precision": 0.1122,
+        "precision": 0.9922,
+        "deployed_precision": 0.1127,
         "deployed_precision_range": [
-          0.061,
-          0.2206
+          0.0613,
+          0.2215
         ]
       },
       "domain_in_train": {
-        "tp": 677,
-        "fn": 85,
+        "tp": 678,
+        "fn": 84,
         "fp": 2,
         "tn": 429,
-        "recall": 0.8885,
+        "recall": 0.8898,
         "recall_ci": [
-          0.8639,
-          0.9099
+          0.8653,
+          0.9111
         ],
         "fpr": 0.00464,
         "fpr_ci": [
@@ -246,10 +246,10 @@
           0.01666
         ],
         "precision": 0.9971,
-        "deployed_precision": 0.1608,
+        "deployed_precision": 0.161,
         "deployed_precision_range": [
-          0.0493,
-          0.6182
+          0.0494,
+          0.6185
         ],
         "n": 1193
       },
@@ -258,31 +258,31 @@
         "roc_auc": 0.9747,
         "roc_auc_ci": [
           0.9668,
-          0.9812
+          0.9813
         ],
-        "recall_at_1pct_fpr": 0.7121,
+        "recall_at_1pct_fpr": 0.7181,
         "mean_p_legit": 0.078,
-        "mean_p_phish": 0.883,
+        "mean_p_phish": 0.884,
         "at_threshold": {
-          "tp": 459,
-          "fn": 208,
+          "tp": 464,
+          "fn": 203,
           "fp": 7,
           "tn": 991,
-          "recall": 0.6882,
+          "recall": 0.6957,
           "recall_ci": [
-            0.6515,
-            0.7232
+            0.6592,
+            0.7304
           ],
           "fpr": 0.00701,
           "fpr_ci": [
             0.00282,
             0.0144
           ],
-          "precision": 0.985,
-          "deployed_precision": 0.0894,
+          "precision": 0.9851,
+          "deployed_precision": 0.0903,
           "deployed_precision_range": [
-            0.0433,
-            0.204
+            0.0438,
+            0.2056
           ]
         }
       },
@@ -292,28 +292,28 @@
       },
       "recall_phish_with_path": {
         "n": 1156,
-        "recall": 0.8279
+        "recall": 0.833
       }
     },
     "external": {
       "n": 2858,
-      "roc_auc": 0.9066,
+      "roc_auc": 0.9071,
       "roc_auc_ci": [
-        0.8943,
-        0.9185
+        0.8948,
+        0.919
       ],
-      "recall_at_1pct_fpr": 0.6585,
+      "recall_at_1pct_fpr": 0.6578,
       "mean_p_legit": 0.009,
       "mean_p_phish": 0.615,
       "at_threshold": {
-        "tp": 654,
-        "fn": 775,
+        "tp": 658,
+        "fn": 771,
         "fp": 0,
         "tn": 1429,
-        "recall": 0.4577,
+        "recall": 0.4605,
         "recall_ci": [
-          0.4316,
-          0.4839
+          0.4344,
+          0.4867
         ],
         "fpr": 0.0,
         "fpr_ci": [
@@ -323,7 +323,7 @@
         "precision": 1.0,
         "deployed_precision": 1.0,
         "deployed_precision_range": [
-          0.1435,
+          0.1443,
           1.0
         ]
       },
@@ -352,23 +352,23 @@
       },
       "domain_not_in_train": {
         "n": 2790,
-        "roc_auc": 0.9032,
+        "roc_auc": 0.9036,
         "roc_auc_ci": [
-          0.8892,
-          0.9156
+          0.8898,
+          0.916
         ],
-        "recall_at_1pct_fpr": 0.6492,
+        "recall_at_1pct_fpr": 0.6485,
         "mean_p_legit": 0.009,
         "mean_p_phish": 0.604,
         "at_threshold": {
-          "tp": 616,
-          "fn": 761,
+          "tp": 620,
+          "fn": 757,
           "fp": 0,
           "tn": 1413,
-          "recall": 0.4473,
+          "recall": 0.4503,
           "recall_ci": [
-            0.4209,
-            0.4741
+            0.4237,
+            0.477
           ],
           "fpr": 0.0,
           "fpr_ci": [
@@ -378,18 +378,18 @@
           "precision": 1.0,
           "deployed_precision": 1.0,
           "deployed_precision_range": [
-            0.1391,
+            0.1399,
             1.0
           ]
         }
       },
       "recall_phish_bare_domain": {
         "n": 1018,
-        "recall": 0.3438
+        "recall": 0.3468
       },
       "recall_phish_with_path": {
         "n": 411,
-        "recall": 0.7397
+        "recall": 0.7421
       }
     }
   },

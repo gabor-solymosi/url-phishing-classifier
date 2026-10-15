@@ -17,7 +17,7 @@ def _model() -> Scorer:
     return Scorer("advanced")  # loaded on first call, not on import
 
 
-def predict(url) -> dict:
+def predict(url, explain: bool = False) -> dict:
     """Return {"label": "phishing" | "clean", "probability": float in [0, 1]}.
     Empty or unusable input returns a neutral {"label": "clean", "probability": 0.5}."""
     try:
@@ -30,4 +30,11 @@ def predict(url) -> dict:
     except Exception:  # Feature extraction should not break callers.
         return dict(INVALID)
     # Use the same validation-selected cutoff as batch scoring.
-    return {"label": "phishing" if probability >= model.threshold else "clean", "probability": probability}
+    result = {"label": "phishing" if probability >= model.threshold else "clean",
+              "probability": probability}
+    if explain:
+        from explain import explain as explain_url
+        details = explain_url(url, scorer=model)
+        result["explanation"] = {key: details[key] for key in
+                                 ("text", "facts", "reasons", "parts", "combination", "generated_by")}
+    return result

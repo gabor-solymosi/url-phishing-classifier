@@ -1,0 +1,373 @@
+{
+  "examples": [
+    {
+      "sample": "PayPal example",
+      "url": "https://www.PayPal-secure.login.tk/webscr?cmd=x",
+      "label": null,
+      "verdict": "phishing",
+      "score": 1.0,
+      "text": "The detector scored PayPal Secure login page as phishing because it detected suspicious words and path/query character patterns on the URL. The strong push of these elements towards phishing led to a high score of 1.00. Additionally, the presence of hyphens in the host name further emphasized the phishing nature of the site.",
+      "facts": "This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is the account-related words 'login', 'secure' and 'webscr'. This strongly points toward phishing. The path '/webscr?cmd=x' and 1 hyphen in the host add to this. Even without the account-related words 'login', 'secure' and 'webscr' and the path '/webscr?cmd=x' the score would stay at 0.99, so many signals agree. In the URL itself, 'paypal-secure' and 'webscr' matter most.",
+      "generated_by": "Qwen/Qwen2.5-0.5B-Instruct",
+      "reasons": [
+        {
+          "name": "suspicious words",
+          "value": "3",
+          "effect": 3.8092,
+          "p_without": 0.9981
+        },
+        {
+          "name": "path/query character patterns",
+          "value": "/webscr?cmd=x",
+          "effect": 1.1724,
+          "p_without": 0.9999
+        },
+        {
+          "name": "hyphens in the host",
+          "value": "1",
+          "effect": 1.11,
+          "p_without": 0.9999
+        }
+      ]
+    },
+    {
+      "sample": "true positive",
+      "url": "http://104.237.152.236/nh6pzb",
+      "label": 1,
+      "verdict": "phishing",
+      "score": 0.999749,
+      "text": "The detector scored 1.00 because the URL contains the digit \"12\", which is a strong indicator of potential phishing activity. The presence of digits in the host and URL also contributed significantly to the score, as evidenced by the scores for these components alone being lower than 1.00.",
+      "facts": "This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is 12 digits in the host. This strongly points toward phishing. The share of digits in the URL (44.8%) and the words in the URL (104 237 152 236) add to this. Together, 12 digits in the host and the share of digits in the URL (44.8%) have the largest joint effect: without both the score would fall from above 0.99 to 0.93, which would change the verdict. In the URL itself, '104' and '237' matter most.",
+      "generated_by": "Qwen/Qwen2.5-0.5B-Instruct",
+      "reasons": [
+        {
+          "name": "digits in the host",
+          "value": "12",
+          "effect": 3.9773,
+          "p_without": 0.9868
+        },
+        {
+          "name": "digits in the URL",
+          "value": "44.8%",
+          "effect": 1.9808,
+          "p_without": 0.9982
+        },
+        {
+          "name": "words in the URL",
+          "value": "http 104 237 152",
+          "effect": 1.5468,
+          "p_without": 0.9988
+        }
+      ]
+    },
+    {
+      "sample": "true positive",
+      "url": "http://mail.openatelier.nl/~u43730p39181/pki-validation",
+      "label": 1,
+      "verdict": "phishing",
+      "score": 0.996736,
+      "text": "This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is the words in the URL (mail openatelier nl u43730p39181). This clearly points toward phishing. The path '/~u43730p39181/pki-validation' and the share of digits in the URL (18.2%) add to this. Together, the words in the URL (mail openatelier nl u43730p39181) and the path '/~u43730p39181/pki-validation' have the largest joint effect: without both the score would fall from above 0.99 to 0.87, which would change the verdict. In the URL itself, 'mail' and 'pki-validation' matter most.",
+      "facts": "This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is the words in the URL (mail openatelier nl u43730p39181). This clearly points toward phishing. The path '/~u43730p39181/pki-validation' and the share of digits in the URL (18.2%) add to this. Together, the words in the URL (mail openatelier nl u43730p39181) and the path '/~u43730p39181/pki-validation' have the largest joint effect: without both the score would fall from above 0.99 to 0.87, which would change the verdict. In the URL itself, 'mail' and 'pki-validation' matter most.",
+      "generated_by": "template",
+      "reasons": [
+        {
+          "name": "words in the URL",
+          "value": "http mail openatelier nl",
+          "effect": 2.3013,
+          "p_without": 0.9683
+        },
+        {
+          "name": "path/query character patterns",
+          "value": "/~u43730p39181/pki-validation",
+          "effect": 2.0016,
+          "p_without": 0.9763
+        },
+        {
+          "name": "digits in the URL",
+          "value": "18.2%",
+          "effect": 0.8347,
+          "p_without": 0.9925
+        }
+      ]
+    },
+    {
+      "sample": "true positive",
+      "url": "https://three-gb.com/banks/online.tsb.co.uk/",
+      "label": 1,
+      "verdict": "phishing",
+      "score": 0.999414,
+      "text": "This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is the words in the URL (three gb com banks). This clearly points toward phishing. The path '/banks/online.tsb.co.uk/' and 1 hyphen in the host add to this. Together, the words in the URL (three gb com banks) and the path '/banks/online.tsb.co.uk/' have the largest joint effect: without both the score would fall from above 0.99 to 0.966, which would change the verdict. In the URL itself, 'three-gb' and 'online.tsb.co.uk' matter most.",
+      "facts": "This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is the words in the URL (three gb com banks). This clearly points toward phishing. The path '/banks/online.tsb.co.uk/' and 1 hyphen in the host add to this. Together, the words in the URL (three gb com banks) and the path '/banks/online.tsb.co.uk/' have the largest joint effect: without both the score would fall from above 0.99 to 0.966, which would change the verdict. In the URL itself, 'three-gb' and 'online.tsb.co.uk' matter most.",
+      "generated_by": "template",
+      "reasons": [
+        {
+          "name": "words in the URL",
+          "value": "https three gb com",
+          "effect": 2.8518,
+          "p_without": 0.9899
+        },
+        {
+          "name": "path/query character patterns",
+          "value": "/banks/online.tsb.co.uk/",
+          "effect": 1.4721,
+          "p_without": 0.9975
+        },
+        {
+          "name": "hyphens in the host",
+          "value": "1",
+          "effect": 0.8217,
+          "p_without": 0.9987
+        }
+      ]
+    },
+    {
+      "sample": "false positive",
+      "url": "http://back.dog/auth/login",
+      "label": 0,
+      "verdict": "phishing",
+      "score": 0.999788,
+      "text": "This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is the path '/auth/login'. This strongly points toward phishing. The account-related word 'login' and the words in the URL (back dog auth login) add to this. Together, the path '/auth/login' and the account-related word 'login' have the largest joint effect: without both the score would fall from above 0.99 to 0.94, which would change the verdict. In the URL itself, 'login' and 'auth' matter most.",
+      "facts": "This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is the path '/auth/login'. This strongly points toward phishing. The account-related word 'login' and the words in the URL (back dog auth login) add to this. Together, the path '/auth/login' and the account-related word 'login' have the largest joint effect: without both the score would fall from above 0.99 to 0.94, which would change the verdict. In the URL itself, 'login' and 'auth' matter most.",
+      "generated_by": "template",
+      "reasons": [
+        {
+          "name": "path/query character patterns",
+          "value": "/auth/login",
+          "effect": 3.2052,
+          "p_without": 0.9948
+        },
+        {
+          "name": "suspicious words",
+          "value": "1",
+          "effect": 2.5489,
+          "p_without": 0.9973
+        },
+        {
+          "name": "words in the URL",
+          "value": "http back dog auth",
+          "effect": 2.4731,
+          "p_without": 0.9975
+        }
+      ]
+    },
+    {
+      "sample": "false positive",
+      "url": "http://html.freebuddymovies.com/5/79/pics/55933/nude/188_c1848_01.html",
+      "label": 0,
+      "verdict": "phishing",
+      "score": 0.987599,
+      "text": "The detector scored 0.99 because the presence of digits in the URL (24.3%) and path slashes (6%) significantly increased the likelihood of being flagged as phishing. The strong combination of these factors\u2014digits in the URL and path slashes\u2014was enough to push the score towards phishing.",
+      "facts": "This URL is flagged as phishing, but only just: its score of 0.99 is close to the 0.971 cut-off. The strongest signal is the share of digits in the URL (24.3%). This clearly points toward phishing. 6 slashes in the path and the words in the URL (html freebuddymovies com 79) add to this. Together, the share of digits in the URL (24.3%) and 6 slashes in the path have the largest joint effect: without both the score would fall from 0.99 to 0.47, which would change the verdict. In the URL itself, 'freebuddymovies' and 'html' matter most.",
+      "generated_by": "Qwen/Qwen2.5-0.5B-Instruct",
+      "reasons": [
+        {
+          "name": "digits in the URL",
+          "value": "24.3%",
+          "effect": 1.9314,
+          "p_without": 0.9203
+        },
+        {
+          "name": "path slashes",
+          "value": "6",
+          "effect": 1.3087,
+          "p_without": 0.9556
+        },
+        {
+          "name": "words in the URL",
+          "value": "http html freebuddymovies com",
+          "effect": 0.8045,
+          "p_without": 0.9727
+        }
+      ]
+    },
+    {
+      "sample": "false negative",
+      "url": "https://ocurenc.com",
+      "label": 1,
+      "verdict": "clean",
+      "score": 0.902286,
+      "text": "This URL is treated as clean, but it is a borderline case: its score of 0.90 is just under the 0.971 cut-off. The strongest signal is an empty path. This clearly points toward a legitimate site. No slashes in the path and a host made of 2 dot-separated parts add to this. Together, the host name 'ocurenc.com' and the words in the URL (ocurenc com) have the largest joint effect: without both the score would fall from 0.90 to 0.05.",
+      "facts": "This URL is treated as clean, but it is a borderline case: its score of 0.90 is just under the 0.971 cut-off. The strongest signal is an empty path. This clearly points toward a legitimate site. No slashes in the path and a host made of 2 dot-separated parts add to this. Together, the host name 'ocurenc.com' and the words in the URL (ocurenc com) have the largest joint effect: without both the score would fall from 0.90 to 0.05.",
+      "generated_by": "template",
+      "reasons": [
+        {
+          "name": "path length",
+          "value": "0",
+          "effect": -1.8686,
+          "p_without": 0.9836
+        },
+        {
+          "name": "path slashes",
+          "value": "0",
+          "effect": -0.4453,
+          "p_without": 0.9351
+        },
+        {
+          "name": "host labels",
+          "value": "2",
+          "effect": -0.3486,
+          "p_without": 0.929
+        }
+      ]
+    },
+    {
+      "sample": "false negative",
+      "url": "http://us.megamilly.com/index/log/claim/claims.html",
+      "label": 1,
+      "verdict": "clean",
+      "score": 0.661839,
+      "text": "This URL is treated as clean, but it is a borderline case: its score of 0.66 is just under the 0.971 cut-off. The strongest signal is the host name 'us.megamilly.com'. This strongly points toward a legitimate site. The path length (28 characters) and a page file ending such as .php or .html add to this. Together, the host name 'us.megamilly.com' and the words in the URL (us megamilly com index) have the largest joint effect: without both the score would rise from 0.66 to 0.980, which would change the verdict. In the URL itself, 'claim' and 'claims.html' matter most.",
+      "facts": "This URL is treated as clean, but it is a borderline case: its score of 0.66 is just under the 0.971 cut-off. The strongest signal is the host name 'us.megamilly.com'. This strongly points toward a legitimate site. The path length (28 characters) and a page file ending such as .php or .html add to this. Together, the host name 'us.megamilly.com' and the words in the URL (us megamilly com index) have the largest joint effect: without both the score would rise from 0.66 to 0.980, which would change the verdict. In the URL itself, 'claim' and 'claims.html' matter most.",
+      "generated_by": "template",
+      "reasons": [
+        {
+          "name": "host character patterns",
+          "value": "us.megamilly.com",
+          "effect": -4.5216,
+          "p_without": 0.9945
+        },
+        {
+          "name": "path length",
+          "value": "28",
+          "effect": -0.1172,
+          "p_without": 0.6875
+        },
+        {
+          "name": "a file extension",
+          "value": "yes",
+          "effect": -0.0771,
+          "p_without": 0.6789
+        }
+      ]
+    },
+    {
+      "sample": "true negative",
+      "url": "https://tabs.ultimate-guitar.com/0-9/5_seconds_of_summer/amnesia_crd.htm",
+      "label": 0,
+      "verdict": "clean",
+      "score": 0.0313,
+      "text": "This URL looks clean: its score of 0.03 is far below the 0.971 cut-off. The strongest signal is the host name 'tabs.ultimate-guitar.com'. This strongly points toward a legitimate site. The path '/0-9/5_seconds_of_summer/amnesia_crd.htm' and a page file ending such as .php or .html add to this. Together, the host name 'tabs.ultimate-guitar.com' and the path '/0-9/5_seconds_of_summer/amnesia_crd.htm' have the largest joint effect: without both the score would rise from 0.03 to 0.96. In the URL itself, 'tabs' and '5_seconds_of_summer' matter most.",
+      "facts": "This URL looks clean: its score of 0.03 is far below the 0.971 cut-off. The strongest signal is the host name 'tabs.ultimate-guitar.com'. This strongly points toward a legitimate site. The path '/0-9/5_seconds_of_summer/amnesia_crd.htm' and a page file ending such as .php or .html add to this. Together, the host name 'tabs.ultimate-guitar.com' and the path '/0-9/5_seconds_of_summer/amnesia_crd.htm' have the largest joint effect: without both the score would rise from 0.03 to 0.96. In the URL itself, 'tabs' and '5_seconds_of_summer' matter most.",
+      "generated_by": "template",
+      "reasons": [
+        {
+          "name": "host character patterns",
+          "value": "tabs.ultimate-guitar.com",
+          "effect": -4.8543,
+          "p_without": 0.8056
+        },
+        {
+          "name": "path/query character patterns",
+          "value": "/0-9/5_seconds_of_summer/amnesia_crd.htm",
+          "effect": -0.8043,
+          "p_without": 0.0674
+        },
+        {
+          "name": "a file extension",
+          "value": "yes",
+          "effect": -0.4581,
+          "p_without": 0.0486
+        }
+      ]
+    },
+    {
+      "sample": "true negative",
+      "url": "https://www.holikaholika.ee/en/",
+      "label": 0,
+      "verdict": "clean",
+      "score": 0.059588,
+      "text": "This URL looks clean: its score of 0.06 is far below the 0.971 cut-off. The strongest signal is the words in the URL (holikaholika ee en). This clearly points toward a legitimate site. The path '/en/' and the host name 'www.holikaholika.ee' add to this. Together, the words in the URL (holikaholika ee en) and the host name 'www.holikaholika.ee' have the largest joint effect: without both the score would rise from 0.06 to 0.76. In the URL itself, 'www' matters most.",
+      "facts": "This URL looks clean: its score of 0.06 is far below the 0.971 cut-off. The strongest signal is the words in the URL (holikaholika ee en). This clearly points toward a legitimate site. The path '/en/' and the host name 'www.holikaholika.ee' add to this. Together, the words in the URL (holikaholika ee en) and the host name 'www.holikaholika.ee' have the largest joint effect: without both the score would rise from 0.06 to 0.76. In the URL itself, 'www' matters most.",
+      "generated_by": "template",
+      "reasons": [
+        {
+          "name": "words in the URL",
+          "value": "https www holikaholika ee",
+          "effect": -2.4404,
+          "p_without": 0.421
+        },
+        {
+          "name": "path/query character patterns",
+          "value": "/en/",
+          "effect": -1.6676,
+          "p_without": 0.2514
+        },
+        {
+          "name": "host character patterns",
+          "value": "www.holikaholika.ee",
+          "effect": -1.2883,
+          "p_without": 0.1869
+        }
+      ]
+    }
+  ],
+  "faithfulness": {
+    "n": 200,
+    "median_drop_top3": 6.036971489089616,
+    "median_drop_rand3": 0.001957256650559458,
+    "share_top3_exceeds_random": 1.0,
+    "share_top3_flips_to_clean": 0.825,
+    "reason1_counts": {
+      "words in the URL": 87,
+      "path/query character patterns": 41,
+      "suspicious words": 30,
+      "digits in the host": 22,
+      "host character patterns": 10,
+      "an @ sign": 5,
+      "digits in the URL": 2,
+      "path length": 2,
+      "hyphens in the host": 1
+    },
+    "common_combinations": [
+      {
+        "a": "path/query character patterns",
+        "b": "words in the URL",
+        "count": 60
+      },
+      {
+        "a": "digits in the host",
+        "b": "words in the URL",
+        "count": 25
+      },
+      {
+        "a": "suspicious words",
+        "b": "words in the URL",
+        "count": 21
+      },
+      {
+        "a": "host character patterns",
+        "b": "words in the URL",
+        "count": 13
+      },
+      {
+        "a": "path/query character patterns",
+        "b": "suspicious words",
+        "count": 12
+      }
+    ]
+  },
+  "llm_checks": {
+    "n": 50,
+    "n_llm_texts": 18,
+    "template_guard_fallback_share": 0.64,
+    "mean_seconds_with_llm": 3.6794117634799113,
+    "mean_seconds_without_llm": 0.02245944562000659,
+    "share_llm_texts_mention_reason1": 1.0
+  },
+  "llm_model_comparison": {
+    "Qwen/Qwen2.5-0.5B-Instruct": {
+      "n": 50,
+      "guard_fallback_share": 0.04,
+      "share_mentioning_reason1": 0.4,
+      "share_both": 0.36,
+      "mean_seconds": 4.050930614499993
+    },
+    "Qwen/Qwen2.5-1.5B-Instruct": {
+      "n": 50,
+      "guard_fallback_share": 0.1,
+      "share_mentioning_reason1": 0.3,
+      "share_both": 0.2,
+      "mean_seconds": 8.62971422630003
+    }
+  }
+}

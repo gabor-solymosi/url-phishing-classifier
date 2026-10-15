@@ -11,16 +11,16 @@ either test file was read.
 | Advanced model | n | ROC-AUC [95 % CI] | Recall [95 % CI] | FPR (false positives) | Baseline AUC / recall |
 |---|---|---|---|---|---|
 | Validation (grouped CV) | 8,319 | 0.975 | 0.702 | 0.99 % (42) | 0.963 / 0.670 |
-| `test.csv` | 2,858 | 0.987 [0.982, 0.991] | 0.795 [0.773, 0.816] | 0.63 % (9) | 0.979 / 0.755 |
-| ↳ domain not in train | 1,665 | 0.975 | 0.688 | 0.70 % (7) | – |
-| `external_test.csv` | 2,858 | 0.907 [0.894, 0.919] | 0.458 [0.432, 0.484] | 0 % (0) | 0.944 / 0.368 |
+| `test.csv` | 2,858 | 0.987 [0.982, 0.991] | 0.799 [0.777, 0.820] | 0.63 % (9) | 0.979 / 0.755 |
+| ↳ domain not in train | 1,665 | 0.975 | 0.696 | 0.70 % (7) | – |
+| `external_test.csv` | 2,858 | 0.907 [0.895, 0.919] | 0.461 [0.434, 0.487] | 0 % (0) | 0.944 / 0.368 |
 
 **Claim:** for new domains from similar feeds, the model catches about **70 % of phishing while flagging
 about 1 % of legitimate URLs**. At 1 phishing URL in 1,000, only **about 7–11 % of alerts would be real**.
 On differently collected data, recall falls to **46 %**.
 
-- **`test.csv` is optimistic:** 41.8 % of its rows share a registered domain with train, and recall is 0.889
-  on those versus 0.688 on unseen domains.
+- **`test.csv` is optimistic:** 41.8 % of its rows share a registered domain with train, and recall is 0.890
+  on those versus 0.696 on unseen domains.
 - **`external_test.csv` is shifted but unrealistic:** only 2.4 % of its domains appear in train. However,
   *all* of its legitimate URLs are bare homepages, against 37 % in train, so 0 false positives says little
   about real traffic.
@@ -50,7 +50,7 @@ traffic and that the labels are correct.
 |---|---|---|---|
 | Validation at 0.971 (**chosen**) | 0.702 | 0.99 % | 6.7 % |
 | Validation at 0.9994 (0.1 % FPR) | 0.344 | 0.09 % (4 false positives) | 27 % |
-| `test.csv` / unseen domains | 0.795 / 0.688 | 0.63 % / 0.70 % | 11 % [6–22] / 9 % [4–20] |
+| `test.csv` / unseen domains | 0.799 / 0.696 | 0.63 % / 0.70 % | 11 % [6–22] / 9 % [4–21] |
 
 Per million URLs, this means about 700 phishing URLs caught, 300 missed, and 9,900 legitimate URLs flagged.
 

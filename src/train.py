@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 
 from data import ROOT, clean_train, load
+from explain import save_reference
 from metrics import deployed_precision, threshold_for_fpr
 from model import MODELS, Scorer, export, make
 from preprocess import FEATURES
@@ -28,6 +29,7 @@ def threshold_table(y, p):
 
 def main():
     df, cleaning = clean_train(load("train"))
+    save_reference(df)
     y = df.label.to_numpy()
     experiments = json.loads((ROOT / "reports" / "experiments.json").read_text())
     candidates = {r["id"]: r for r in experiments["candidates"]}

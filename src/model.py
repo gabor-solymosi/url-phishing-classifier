@@ -79,10 +79,14 @@ class Scorer:
         urls, out = list(urls), []
         for i in range(0, len(urls), batch):
             x = self.features(urls[i:i + batch]).toarray()
-            parts = []
-            for session, weight, zero_missing, output in self.parts:
-                # XGBoost saw absent sparse entries as missing; ONNX gets dense zeros.
-                values = np.where(x == 0, np.nan, x) if zero_missing else x
-                parts.append(weight * session.run([output], {"x": values})[0][:, 1])  # Sum the phishing class.
-            out.append(sum(parts))
-        return np.clip(np.concatenate(out), 0.0, 1.0).astype(float)
+            out.append(self.score_matrix(x))
+        return np.concatenate(out)
+
+    def score_matrix(self, x_dense: np.ndarray) -> np.ndarray:
+        """Score an already-built dense feature matrix with the loaded ONNX graphs."""
+        parts = []
+        for session, weight, zero_missing, output in self.parts:
+            # XGBoost saw absent sparse entries as missing; ONNX gets dense zeros.
+            values = np.where(x_dense == 0, np.nan, x_dense) if zero_missing else x_dense
+            parts.append(weight * session.run([output], {"x": values})[0][:, 1])
+        return np.clip(sum(parts), 0.0, 1.0).astype(float)

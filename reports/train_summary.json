@@ -20,7 +20,7 @@
       ]
     ],
     "threshold": 0.7996,
-    "onnx_vs_python_max_abs_diff": 2.1662380067510867e-07,
+    "onnx_vs_python_max_abs_diff": 2.166237978995511e-07,
     "validation_thresholds": [
       {
         "target_fpr": 0.05,
@@ -86,7 +86,7 @@
       ]
     ],
     "threshold": 0.9709,
-    "onnx_vs_python_max_abs_diff": 1.2208481753317457e-07,
+    "onnx_vs_python_max_abs_diff": 1.129532460897309e-07,
     "validation_thresholds": [
       {
         "target_fpr": 0.05,

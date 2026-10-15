@@ -9,7 +9,7 @@ Two models scored only from the URL string:
   compared in 5-fold cross-validation grouped by registered domain. The selected model is 0.25 × logistic
   regression (C=16) + 0.75 × LightGBM (800 trees, 63 leaves).
 
-Both are stored as ONNX in `models/`; the text-to-feature step runs in Python (`src/preprocess.py`).
+Both are stored as ONNX in `models/`; the text→feature step runs in Python (`src/preprocess.py`).
 `xgboost.onnx` is the best XGBoost candidate from the sweep, saved for comparison only; `predict()` uses
 the selected advanced model. The report is [reports/REPORT.md](reports/REPORT.md).
 
@@ -20,11 +20,11 @@ data/          train.csv, test.csv, external_test.csv (not committed; copy them 
 src/           preprocess, data (cleaning + audit), metrics, model, experiments, train, evaluate
 models/        baseline.onnx, selected advanced component(s), and comparison-only xgboost.onnx
 reports/       REPORT.md and the JSON files every number in it comes from
-notebooks/     01 EDA, 02 preprocessing, 03 training, 04 threshold, 05 evaluation, 06 prediction
+notebooks/     01 EDA, 02 preprocessing, 03 training, 04 threshold, 05 evaluation, 06 prediction, 07 explanations
 tests/         predict() contract tests
 predict.py     from predict import predict
 predictions.csv  url,probability for every row of data/test.csv (advanced model)
-requirements.txt  pinned project dependencies, including xgboost==2.1.1
+requirements.txt  pinned project dependencies
 ```
 
 ## Setup
@@ -47,7 +47,7 @@ python evaluate.py      # test + external   -> reports/evaluation.json, predicti
 cd .. && python -m pytest -q
 ```
 
-Only `evaluate.py` reads the two evaluation files. Thresholds come from out-of-fold (OOF) training scores.
+Only `evaluate.py` reads the two evaluation files. Thresholds come from out-of-fold training scores.
 
 ## Predict
 
@@ -59,6 +59,42 @@ The model loads on the first call (not on import), runs on CPU and needs no netw
 Invalid input (empty, whitespace or control characters only, `None`, or anything that raises inside
 feature extraction) returns `{"label": "clean", "probability": 0.5}`; other non-strings are converted
 with `str()`.
+
+## Explanations
+
+`src/explain.py` measures leave-one-out score changes for feature groups and URL parts, and checks
+the strongest feature pairs together. Structure features use their legitimate-training medians as
+the replacement value; n-gram groups are zeroed. Their values are shown as the host, path/query
+truncated to 40 characters with an ellipsis, or up to four URL words. The optional Apache-2.0
+`Qwen/Qwen2.5-0.5B-Instruct` model only rewords these facts. `facts` is a deterministic
+plain-English summary built from per-feature phrases; `text` contains accepted Qwen wording or
+`facts` on fallback. The guard rejects output that is too short, adds unsupported numbers, omits
+the verdict, or does not mention the first two words of the strongest reason (case-insensitive).
+
+For PayPal, `facts` reads: “This URL is flagged as phishing with a very high score (above 0.99; anything from 0.971 up is flagged). The strongest signal is the account-related words 'login', 'secure' and 'webscr'. This strongly points toward phishing. The path '/webscr?cmd=x' and 1 hyphen in the host add to this. Even without the account-related words 'login', 'secure' and 'webscr' and the path '/webscr?cmd=x' the score would stay at 0.99, so many signals agree. In the URL itself, 'paypal-secure' and 'webscr' matter most.”
+
+Install the extras with `uv pip install -r requirements-explain.txt`. The first LLM call downloads
+about 1 GB into the normal Hugging Face cache; model weights are not part of this submission.
+
+```bash
+python src/explain.py "https://www.PayPal-secure.login.tk/webscr?cmd=x"
+python src/explain.py "https://www.PayPal-secure.login.tk/webscr?cmd=x" --no-llm
+```
+
+```python
+from predict import predict
+predict("https://www.PayPal-secure.login.tk/webscr?cmd=x", explain=True)
+```
+
+Results (`notebooks/07_explain_demo.ipynb`, `reports/explain_eval.json`):
+- Faithfulness, 200 caught phishing test URLs: removing the 3 named reasons lowers the log-odds by a median of 6.0, against 0.002 for 3 random features. The named reasons beat random in 200/200 cases, and removing them flips 82.5% of URLs to clean.
+- Most frequent top reason: words in the URL (87/200), path/query patterns (41), suspicious words (30), digits in the host (22).
+- LLM wording (Qwen2.5-0.5B, 50 URLs): 36% of texts pass every guard check; the rest fall back to the template. About 4–5 s per explanation on CPU, against 0.02 s without the LLM. A 1.5B model was slower (8.6 s) and passed less often (20%).
+Texts that pass always mention the top reason (the guard enforces it).
+- Passing texts can still be loose, for example inventing why a feature matters. Treat `facts` as the reference and `text` as a readable summary only.
+
+Occlusion is not causal: the score changes describe replacing a feature group or URL part with a
+typical legitimate value, not that it caused the verdict.
 
 `probability` is the model's score for a balanced, train-like population (about half phishing). It is not
 calibrated to real traffic (about 1 in 1,000 phishing) and it is overconfident: the mean score on

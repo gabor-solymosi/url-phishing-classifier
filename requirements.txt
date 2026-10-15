@@ -18,3 +18,8 @@ jupyter==1.1.1
 nbconvert==7.16.6
 ipykernel==6.29.5
 matplotlib==3.9.2
+
+# explanations
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.4.1+cpu
+transformers==4.44.2
