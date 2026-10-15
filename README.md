@@ -32,9 +32,24 @@ requirements.txt  pinned project dependencies
 Python 3.11 is required.
 
 ```bash
-uv venv -p 3.11 .venv && source .venv/bin/activate && uv pip install -r requirements.txt
-# or: python3.11 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+uv venv -p 3.11 .venv
+
+# Activate the environment:
+# Linux/macOS
+source .venv/bin/activate
+# Windows Git Bash
+source .venv/Scripts/activate
+# Windows PowerShell
+# .\.venv\Scripts\Activate.ps1
+
+# Install dependencies (Windows Git Bash):
+uv pip install --python .venv/Scripts/python.exe --index-strategy unsafe-best-match -r requirements.txt
+# Linux/macOS or Windows PowerShell, after activation:
+# uv pip install --index-strategy unsafe-best-match -r requirements.txt
 ```
+
+The unsafe-best-match index strategy is needed because `requirements.txt` uses both PyPI
+and the PyTorch CPU wheel index. Use it only with trusted package indexes.
 
 ## Reproduce (from the repository root, about 15 minutes on 8 CPU cores)
 
